@@ -27,6 +27,7 @@ function crashSound() {
     crashDrumSound.play()
 }
 
+
 //mouse click
 buttonEl[0].addEventListener("click", function () {
     crashDrumSound = new Audio(`./sounds/crash.mp3`)
@@ -39,6 +40,7 @@ document.addEventListener("keydown", function (e) {
         crashSound();
     }
 })
+
 
 
 
@@ -174,6 +176,34 @@ buttonEl[5].addEventListener("click", function () {
 document.addEventListener("keydown", function (e) {
     if (e.key === 'k') {
         tom3Sound();
+    }
+})
+
+
+//// tom-4
+
+
+//background
+buttonEl[6].style.backgroundImage = "url('./images/tom4.png')";
+
+let tom4DrumSound;
+
+//crash sound function
+function tom4Sound() {
+    tom4DrumSound = new Audio(`./sounds/tom-4.mp3`)
+    tom4DrumSound.play()
+}
+
+//mouse click
+buttonEl[6].addEventListener("click", function () {
+    tom4DrumSound = new Audio(`./sounds/tom-4.mp3`)
+    tom4DrumSound.play()
+})
+
+//keyboard press
+document.addEventListener("keydown", function (e) {
+    if (e.key === 'l') {
+        tom4Sound();
     }
 })
 
