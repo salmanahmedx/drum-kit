@@ -5,20 +5,29 @@ let numberOfDrumBeats = document.querySelectorAll(".drum").length
 let i;
 let drumSound;
 
+// // CLick
+
 for (i = 0; i < numberOfDrumBeats; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function () {
-        let buttonInnerHTML = this.innerHTML;
+        let buttonInnerHTML = this.innerHTML; //for example: w
 
-        drumSoundMain(buttonInnerHTML);
+        drumSoundMain(buttonInnerHTML); //drumSoundMain(w)
+        animation(buttonInnerHTML); //animation(w)
     })
 }
 
-document.addEventListener("keypress", function (event) {
-    drumSoundMain(event.key);
+// // Keypress
+
+document.addEventListener("keypress", function (event) { //function(what is causing the event/ function > keypress)
+    drumSoundMain(event.key); // which key caused the keypress > keypress.key > w
+    animation(event.key);
 })
+
+//// Functions
+
 function drumSoundMain(key) {
     switch (key) {
-
+        //if key > w === case > w then play this
         case "w":
 
             let crash = new Audio("sounds/crash.mp3")
@@ -64,4 +73,14 @@ function drumSoundMain(key) {
         default:
             break;
     }
+}
+
+function animation(key) {
+    let activeButton = document.querySelector("." + key); //document.querySelector(".w")
+    activeButton.classList.add("pressed"); //.pressed class added with .w
+
+    // timeout 
+    setTimeout(function () { //what i want to happen at timeout > function
+        activeButton.classList.remove("pressed"); // removed class .pressed from .w
+    }, 100) //when i want the timeout > 0.1s > 100ms
 }
